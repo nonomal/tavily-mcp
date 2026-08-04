@@ -939,9 +939,6 @@ function formatResults(response: TavilyResponse): string {
   output.push('Detailed Results:');
   response.results.forEach(result => {
     output.push(`\nTitle: ${result.title}`);
-    // Surfaced so the agent can refer back to a specific result within the session.
-    // Guarded despite `id` being a required field: the type is erased at runtime, and
-    // against an API that predates the field this would put "ID: undefined" in context.
     if (result.id) {
       output.push(`ID: ${result.id}`);
     }
